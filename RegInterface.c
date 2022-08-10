@@ -46,7 +46,7 @@ void setMod(RegisterSet* regs, uint16_t mod)
 void setPhaseVal(RegisterSet* regs, uint16_t phase)
 {
   if(phase >= regs->reg1.modulus)
-    phase = regs->reg1.modulus - 1;
+    phase = phase - 1;
   regs->reg1.phase = phase;
 }
 
@@ -66,9 +66,12 @@ void setPhaseAdjust(RegisterSet* regs, uint8_t phaseAdjust)
     regs->reg1.phaseAdjust = 0;
 }
 
-void counterReset(RegisterSet* regs)
+void counterReset(RegisterSet* regs, uint8_t reset)
 {
-  regs->reg2.counterReset = 1;
+  if(reset)
+    regs->reg2.counterReset = 1;
+  else
+    regs->reg2.counterReset = 0;
 }
 
 void setCPThreeState(RegisterSet* regs, uint8_t CPstate)
@@ -291,7 +294,7 @@ void setFeedbackSelect(RegisterSet* regs, uint8_t select)
 
 void setLockDetectPinMode(RegisterSet* regs, uint8_t pinMode)
 {
-  if(pinMode > 0x3)
+  if(pinMode > 0x3)x
     pinMode = 0x3;
 
   regs->reg5.LDPinMode = pinMode;

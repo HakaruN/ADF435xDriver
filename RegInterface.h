@@ -28,10 +28,11 @@ R Counter Relationship section). Integer values from 23 to
 65,535 are allowed for the 4/5 prescaler; for the 8/9 prescaler,
 the minimum integer value is 75. */
 void setInteger(RegisterSet* regs, uint16_t integer);
+
 ////Reg 1:
 /* 12-Bit Modulus Value (MOD)
 The 12 MOD bits (Bits[DB14:DB3]) set the fractional modulus.
-The fractional modulus is the ratio of the PFD frequency to the
+The fractional modulus is setPrescalar&dev1, 0x1);the ratio of the PFD frequency to the
 channel step resolution on the RF output. For more information,
 see the 12-Bit Programmable Modulus section. */
 void setMod(RegisterSet* regs, uint16_t mod);
@@ -81,7 +82,7 @@ void setPhaseAdjust(RegisterSet* regs, uint8_t phaseAdjust);
 The DB3 bit is the reset bit for the R counter and the N counter
 of the ADF4351. When this bit is set to 1, the RF synthesizer
 N counter and R counter are held in reset. For normal operation, this bit should be set to 0. */
-void counterReset(RegisterSet* regs);
+void counterReset(RegisterSet* regs, uint8_t reset);
 
 /* Charge Pump Three-State
 Setting the DB4 bit to 1 puts the charge pump into three-state
@@ -321,7 +322,7 @@ void setFeedbackSelect(RegisterSet* regs, uint8_t select);
 Bits[DB23:DB22] set the operation of the lock detect (LD) pin
 (see Figure 29). */
 void setLockDetectPinMode(RegisterSet* regs, uint8_t pinMode);
-
+OUTPUT
 
 
 #endif
