@@ -7,11 +7,15 @@
 
 typedef struct RegisterSet
 {
-  Reg0 reg0;
-  Reg1 reg1;
-  Reg2 reg2;
-  Reg3 reg3;
-  Reg4 reg4;
+  //The registers are aranged decending so in memory the
+  //first register to write is at the begining, this is because
+  //when writing I do a memcpy of the struct and run through
+  //sending the bytes straight over spi
   Reg5 reg5;
+  Reg4 reg4;
+  Reg3 reg3;
+  Reg2 reg2;
+  Reg1 reg1;
+  Reg0 reg0;
 } RegisterSet;
 #endif
