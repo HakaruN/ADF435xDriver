@@ -294,7 +294,7 @@ void setFeedbackSelect(RegisterSet* regs, uint8_t select)
 
 void setLockDetectPinMode(RegisterSet* regs, uint8_t pinMode)
 {
-  if(pinMode > 0x3)x
+  if(pinMode > 0x3)
     pinMode = 0x3;
 
   regs->reg5.LDPinMode = pinMode;

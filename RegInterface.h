@@ -322,7 +322,7 @@ void setFeedbackSelect(RegisterSet* regs, uint8_t select);
 Bits[DB23:DB22] set the operation of the lock detect (LD) pin
 (see Figure 29). */
 void setLockDetectPinMode(RegisterSet* regs, uint8_t pinMode);
-OUTPUT
+
 
 
 #endif
