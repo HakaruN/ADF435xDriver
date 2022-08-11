@@ -145,7 +145,7 @@ void setRdivBy2(RegisterSet* regs, uint8_t divBy2)
   if(divBy2)
     regs->reg2.RDiv2 = 1;
   else
-    regs->reg2.RDiv2 = 1;
+    regs->reg2.RDiv2 = 0;
 }
 
 void setRefDoubler(RegisterSet* regs, uint8_t refDouble)
@@ -215,7 +215,7 @@ void setBandSelectClockMode(RegisterSet* regs, uint8_t mode)
   if(mode)
     regs->reg3.BSCM = 1;
   else
-    regs->reg3.BSCM = 1;
+    regs->reg3.BSCM = 0;
 }
 
 void setOutputPower(RegisterSet* regs, uint8_t power)
