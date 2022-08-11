@@ -31,7 +31,7 @@ int main()
   setABP(&dev1, 0x1);
   setBandSelectClockMode(&dev1, 0x1);
   //Reg 2
-  counterReset(&dev1);
+  counterReset(&dev1, 0);
   setCPThreeState(&dev1, 0x1);
   setPowerDown(&dev1, 0x1);
   setPDPolarity(&dev1, 0x1);

@@ -8,6 +8,7 @@ void setControlRegs(RegisterSet* regs)
   regs->reg3.control = 3;
   regs->reg4.control = 4;
   regs->reg5.control = 5;
+  regs->reg5.reserved1 = 0b11;
 }
 
 void setFraction(RegisterSet* regs, uint16_t frac)

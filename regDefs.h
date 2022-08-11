@@ -76,7 +76,7 @@ typedef struct Reg5
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType reserved0:16; //Reserved reg - 3:18
-  RegType reserved1:2; //Reserved reg - 19:20
+  RegType reserved1:2; //Reserved reg - 19:20 - NOTE: Has to be set to 0b11
   RegType reserved2:1; //Reserved reg - 21
   RegType LDPinMode:2; //LD pin mode - 22:23
   RegType reserved3:8; //Reserved reg - 24:31
