@@ -82,7 +82,7 @@ void setPhaseAdjust(RegisterSet* regs, uint8_t phaseAdjust);
 The DB3 bit is the reset bit for the R counter and the N counter
 of the ADF4351. When this bit is set to 1, the RF synthesizer
 N counter and R counter are held in reset. For normal operation, this bit should be set to 0. */
-void counterReset(RegisterSet* regs, uint8_t reset);
+void setCounterReset(RegisterSet* regs, uint8_t reset);
 
 /* Charge Pump Three-State
 Setting the DB4 bit to 1 puts the charge pump into three-state

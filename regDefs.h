@@ -2,18 +2,20 @@
 #define REG_DEF
 #include <stdint.h>
 typedef uint32_t RegType;
+typedef uint8_t Byte;
 //See datasheet register set for the ADF435x datasheet
 //found: https://www.analog.com/media/en/technical-documentation/data-sheets/ADF4350.pdf
 
-typedef struct Reg0
+
+typedef struct Reg0bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType fraction:12;//Fraction reg - 3:14
   RegType integer:16;//Integer reg - 15:30
   RegType reserved:1;//Reserved reg - 31
-} Reg0;
+} Reg0bits;
 
-typedef struct Reg1
+typedef struct Reg1bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType modulus:12;//Modulus reg - 3:14
@@ -21,9 +23,9 @@ typedef struct Reg1
   RegType prescalar:1;//Prescalar reg - 27
   RegType phaseAdjust:1;//phase adjust reg - 28
   RegType reserved:3;//Reserved reg - 29:31
-} Reg1;
+} Reg1bits;
 
-typedef struct Reg2
+typedef struct Reg2bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType counterReset:1; //Counter reset - 3
@@ -40,9 +42,9 @@ typedef struct Reg2
   RegType muxOut:3; //Multiplexer output - 26:28
   RegType LNaS:2; //Low noise and spur modes - 29:30
   RegType reserved:1;//Reserved reg - 31
-} Reg2;
+} Reg2bits;
 
-typedef struct Reg3
+typedef struct Reg3bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType clockDivVal:12; //Clock divider val - 3:14
@@ -54,9 +56,9 @@ typedef struct Reg3
   RegType ABP:1; //Antibacklash pulse - 22
   RegType BSCM:1; //Band select clock mode -23
   RegType reserved2:8;//Rerved reg - 24:31
-} Reg3;
+} Reg3bits;
 
-typedef struct Reg4
+typedef struct Reg4bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType outputPower:2; //Output power - 3:4
@@ -70,9 +72,9 @@ typedef struct Reg4
   RegType dividerSelect:3; //DBB divider select - 20:22
   RegType feedbackSelect:1; //Feedback select - 23
   RegType reserved:8; //Reserved reg - 24:32
-} Reg4;
+} Reg4bits;
 
-typedef struct Reg5
+typedef struct Reg5bits
 {
   RegType control:3; //Control reg bottom 3 bits - 0:2
   RegType reserved0:16; //Reserved reg - 3:18
@@ -80,6 +82,6 @@ typedef struct Reg5
   RegType reserved2:1; //Reserved reg - 21
   RegType LDPinMode:2; //LD pin mode - 22:23
   RegType reserved3:8; //Reserved reg - 24:31
-} Reg5;
+} Reg5bits;
 
 #endif
