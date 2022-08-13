@@ -52,7 +52,7 @@ enum COUNTER_RESET {
 };
 ////REG 3
 enum BAND_SELECT_CLOCK_MODE {
-  LOW, HIGH //LOW recomended for pfd freq < 125Khz, HIGH needs band select clock div <=254
+  BSCM_LOW, BSCM_HIGH //LOW recomended for pfd freq < 125Khz, HIGH needs band select clock div <=254
 };
 
 enum ABP_PULSE_WIDTH {
@@ -127,13 +127,5 @@ enum LD_PIN_MODE {
   LD_LOW, LD_DIGITAL_LOCK_EVENT,
   LD_HIGH = 3
 };
-
-
-
-
-
-
-
-
 
 #endif
