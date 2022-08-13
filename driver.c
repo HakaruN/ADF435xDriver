@@ -2,7 +2,7 @@
 //#include "registerSet.h"
 #include "RegInterface.h"
 #include "enums.h"
-
+#include <math.h>
 
 
 uint8_t getRfDiv(uint32_t desiredFreq)
@@ -23,11 +23,19 @@ uint8_t getRfDiv(uint32_t desiredFreq)
     return DIV_BY_1;
 }
 
+uint8_t calcBandSelectClockDiv(uint32_t pfdFreq)
+{ //calculate the divider for the band select logic that will ensure the
+  //band select logic never runs >125Khz
+  float pfdf = (float)pfdFreq;
+  float ratio = pfdf / 125000.f;
+  return (uint8_t)(ceil(ratio));
+}
+
 int main()
 {
   uint32_t genFreq = 2000000000;//2.4Ghz
   uint32_t refFreq = 25000000;//25Mhz
-  uint32_t refDivCounter = 100;
+  uint32_t refDivCounter = 99;
   uint8_t refDouble = 1;
   uint8_t refDivBy2 = 1;
   uint16_t outputChannelSpacing = 2000;
@@ -126,6 +134,9 @@ int main()
 
   uint8_t lockDetectPinMode = LD_HIGH;
 
+  uint8_t bandSelectClockDiv = calcBandSelectClockDiv(pfdFreq);
+  printf("Band select clock div: %d\n", bandSelectClockDiv);
+
 
   RegisterSet dev1;
 
@@ -143,7 +154,7 @@ int main()
   setAuxOutputSelect(&dev1, auxOutputSelect);
   setMTLD(&dev1, mtld);
   setVCOPowerDown(&dev1, VCOPowerDown);
-  setBSCDV(&dev1, 0xFF);
+  setBSCDV(&dev1, bandSelectClockDiv);
   setDividerSelect(&dev1, divideRatio);
   setFeedbackSelect(&dev1, feedbackSelect);
   //Reg 3
